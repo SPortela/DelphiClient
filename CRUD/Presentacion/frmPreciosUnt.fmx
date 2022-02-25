@@ -1,0 +1,86 @@
+object frmPrecios: TfrmPrecios
+  Left = 0
+  Top = 0
+  Caption = 'Precios Alternativos'
+  ClientHeight = 526
+  ClientWidth = 384
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object lyContent: TLayout
+    Align = Client
+    Size.Width = 384.000000000000000000
+    Size.Height = 526.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object lvPrecios: TListView
+      ItemAppearanceClassName = 'TImageListItemRightButtonAppearance'
+      ItemEditAppearanceClassName = 'TImageListItemRightButtonDeleteAppearance'
+      HeaderAppearanceClassName = 'TListHeaderObjects'
+      FooterAppearanceClassName = 'TListHeaderObjects'
+      Align = Client
+      Margins.Left = 15.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 15.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Size.Width = 354.000000000000000000
+      Size.Height = 468.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      ItemAppearanceObjects.ItemObjects.Text.Font.Size = 10.000000000000000000
+      ItemAppearanceObjects.ItemObjects.TextButton.Text = 'Selecciona'
+      StyleLookup = 'listviewstyle'
+      OnButtonClick = lvPreciosButtonClick
+    end
+    object TopToolBar: TToolBar
+      Anchors = []
+      Size.Width = 384.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'HeaderStyle1'
+      TabOrder = 1
+      object ToolBarLabel: TLabel
+        Align = Contents
+        StyledSettings = [Family]
+        Size.Width = 384.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'toollabel'
+        TextSettings.Font.Size = 18.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claWhite
+        TextSettings.HorzAlign = Center
+        Text = 'Lista de Precios Alternativos'
+      end
+    end
+  end
+  object BindingsList: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 20
+    Top = 5
+    object LinkListControlToField1: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = bsPreciosAlternos
+      FieldName = 'Precios'
+      Control = lvPrecios
+      FillExpressions = <>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkPropertyToFieldSearchVisible: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = bsPreciosAlternos
+      FieldName = 'Precios'
+      Component = lvPrecios
+      ComponentProperty = 'SearchVisible'
+    end
+  end
+  object bsPreciosAlternos: TBindSourceDB
+    DataSet = ClientModule.tbPreciosAlternos
+    ScopeMappings = <>
+    Left = 24
+    Top = 56
+  end
+end
